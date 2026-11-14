@@ -1,346 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Siddalingesh DC</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: linear-gradient(180deg, #f4f4f9, #e0f7fa);
-        margin: 0;
-      }
-      header {
-        background: linear-gradient(135deg, #00695c, #004d40);
-        color: #fff;
-        padding: 3rem 0;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        position: relative;
-      }
-      header .img-container {
-        position: relative;
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-        overflow: hidden;
-        border-radius: 50%;
-      }
-      header img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-        transition: transform 0.3s ease;
-      }
-      header .img-container:hover img {
-        transform: scale(1.1);
-      }
-      header h1 {
-        font-size: 3.5rem;
-        margin-bottom: 0.5rem;
-        animation: fadeIn 1s ease-in-out;
-      }
-      header p {
-        font-size: 1.2rem;
-      }
-      header a {
-        color: #ffd600;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
-      header a:hover {
-        color: #ffab00;
-      }
-      nav {
-        display: flex;
-        justify-content: center;
-        background: #004d40;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        padding: 1rem 2rem;
-        display: block;
-        transition: background 0.3s ease;
-      }
-      nav a:hover {
-        background: #00695c;
-      }
-      .container {
-        width: 90%;
-        margin: 2rem auto;
-        max-width: 1200px;
-      }
-      .section {
-        margin: 2rem 0;
-      }
-      .section h2 {
-        text-align: center;
-        margin-bottom: 1rem;
-        color: #00695c;
-        position: relative;
-      }
-      .section h2::after {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 3px;
-        background: #004d40;
-        margin: 0.5rem auto 0;
-        border-radius: 5px;
-      }
-      .skills,
-      .projects,
-      .certificates {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 1rem;
-      }
-      .skills .skill,
-      .projects .project,
-      .certificates .certificate {
-        flex: 1 1 calc(30% - 1rem);
-        background: #fff;
-        margin: 0.5rem;
-        padding: 1.5rem;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .skills .skill:hover,
-      .projects .project:hover,
-      .certificates .certificate:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-      }
-      .projects .project {
-        background: linear-gradient(180deg, #f4f4f9, #e3f2fd);
-      }
-      .contact form {
-        max-width: 600px;
-        margin: 0 auto;
-        background: #fff;
-        padding: 2rem;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      .contact form label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-      }
-      .contact form input,
-      .contact form textarea {
-        width: 100%;
-        padding: 0.7rem;
-        margin-bottom: 1.5rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-      .contact form button {
-        background: #004d40;
-        color: #fff;
-        border: none;
-        padding: 0.8rem 2rem;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease;
-      }
-      .contact form button:hover {
-        background: #00695c;
-      }
-      footer {
-        text-align: center;
-        padding: 1rem 0;
-        background: #004d40;
-        color: #fff;
-        margin-top: 2rem;
-      }
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Media Queries for responsiveness */
-      @media (max-width: 768px) {
-        header h1 {
-          font-size: 2.5rem;
-        }
-        header .img-container {
-          width: 120px;
-          height: 120px;
-        }
-        .skills .skill,
-        .projects .project,
-        .certificates .certificate {
-          flex: 1 1 100%;
-        }
-        nav {
-          flex-direction: column;
-        }
-        nav a {
-          padding: 1rem;
-          text-align: center;
-        }
-        .container {
-          width: 95%;
-        }
-        .contact form {
-          padding: 1.5rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        header h1 {
-          font-size: 2rem;
-        }
-        header p {
-          font-size: 1rem;
-        }
-        .skills .skill,
-        .projects .project,
-        .certificates .certificate {
-          padding: 1rem;
-        }
-        .contact form label,
-        .contact form input,
-        .contact form textarea {
-          font-size: 0.9rem;
-        }
-        .contact form button {
-          padding: 0.7rem 1.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="img-container">
-        <img src="PIC.jpeg" alt="Portfolio" />
-      </div>
-      <h1>Siddalingesh DC</h1>
-      <p>Battery Management System & Embedded Engineer</p>
-      <p>
-        <a
-          href="https://www.linkedin.com/in/siddalingesh-d-c-285b65220?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-          target="_blank"
-          >LinkedIn Profile</a
-        >
-      </p>
-    </header>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="container">
-      <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>
-          Hello! I am an intern at VisionAstraa EV Academy as a PowerTrain Design Engineer, where I am learning about Battery Management System (BMS) algorithms, Embedded Systems, Power Electronics, and Vehicle Dynamics. With a strong foundation in electrical and electronic engineering, I am passionate about contributing to the electric vehicle sector and advancing technologies for a sustainable future.
-        </p>
-      </section>
-      <section id="skills" class="section">
-        <h2>Skills</h2>
-        <div class="skills">
-          <div class="skill">
-            <h3>Battery Management Systems</h3>
-            <p>
-              Battery pack design, SoC/SoH estimation, thermal management,
-              safety protocols.
-            </p>
-          </div>
-          <div class="skill">
-            <h3>Embedded Systems</h3>
-            <p>
-              Microcontrollers, RTOS, CAN, SPI, I2C, UART, firmware development.
-            </p>
-          </div>
-          <div class="skill">
-            <h3>Programming</h3>
-            <p>Embedded C, C, C++, MATLAB/Simulink </p>
-          </div>
-        </div>
-      </section>
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="projects">
-          <div class="project">
-            <h3>3-Level T-Type NPC Inverter for EV</h3>
-            <p>
-              Designed both Software Simulation and Hardware prototype Model.
-            </p>
-          </div>
-          <div class="project">
-            <h3>Torque Vector Control Simulation</h3>
-            <p>
-              Simulated a 4-wheel drive EV system with optimized torque control.
-            </p>
-          </div>
-          <div class="project">
-            <h3>IoT-Based Battery Monitoring System</h3>
-            <p>
-              Designed IOT based Battery monitoring system for Lithium Ion Battery Using STM32 Microcontroller.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section id="certificates" class="section">
-        <h2>Certificates</h2>
-        <div class="certificates">
-          <div class="certificate">
-            <h3>Battery Management System Course</h3>
-            <p>Completed on Udemy, covering battery technologies and management techniques.</p>
-          </div>
-          <div class="certificate">
-            <h3>Matlab Onramp</h3>
-            <p>Completed a self-paced course on Matlab fundamentals.</p>
-          </div>
-          <div class="certificate">
-            <h3>Energy Literacy Program</h3>
-            <p>Completed Energy Literacy course by Dr.Chethan Singh[Solar Gandhi].</p>
-          </div>
-        </div>
-      </section>
-      <section id="contact" class="section contact">
-        <h2>Contact Me</h2>
-        <form action="#" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-
-          <button type="submit">Send Message</button>
-        </form>
-      </section>
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a0c">
+  <meta name="description" content="Siddalingesh DC — EV Systems Engineer working across product definition, MBSE, system architecture, battery swapping, charging systems and integration.">
+  <meta name="keywords" content="Siddalingesh DC, EV Systems Engineer, MBSE, SysML, systems architecture, battery swapping, charger integration, Bengaluru">
+  <meta name="author" content="Siddalingesh DC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Siddalingesh DC — Engineering the connected EV system">
+  <meta property="og:description" content="Product systems engineering · MBSE · EV infrastructure · System integration">
+  <meta property="og:image" content="assets/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Siddalingesh DC — EV Systems Engineer</title>
+  <style>
+    :root{
+      color-scheme:dark;--bg:#090a0c;--bg2:#0f1114;--panel:#13161a;--panel2:#191d21;--ink:#f2f1e9;--muted:#a2a69f;--dim:#727a78;--line:rgba(239,241,231,.13);--line2:rgba(239,241,231,.23);--acid:#d9ff43;--orange:#ff7655;--blue:#93baff;--shadow:0 28px 90px rgba(0,0,0,.4);--max:1320px;--radius:26px
+    }
+    [data-theme="light"]{color-scheme:light;--bg:#eeede6;--bg2:#e6e5dc;--panel:#f8f7f0;--panel2:#fffef8;--ink:#141713;--muted:#4e574e;--dim:#788078;--line:rgba(20,23,19,.13);--line2:rgba(20,23,19,.24);--acid:#9cc400;--orange:#dc5939;--blue:#3769ad;--shadow:0 24px 70px rgba(37,42,30,.13)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px;overflow-x:clip}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.55;overflow-x:clip;transition:background .35s,color .35s}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;opacity:.28;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000 0%,transparent 82%)}body:after{content:"";position:fixed;width:540px;height:540px;right:-260px;top:8%;z-index:-1;pointer-events:none;background:radial-gradient(circle,rgba(217,255,67,.09),transparent 68%)}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--acid);outline-offset:4px}::selection{background:var(--acid);color:#10120a}.mono{font-family:'DM Mono',monospace}.wrap{width:min(var(--max),calc(100% - 64px));margin-inline:auto}.skip{position:fixed;top:-60px;left:15px;z-index:9999;padding:12px;background:var(--acid);color:#10120a}.skip:focus{top:12px}.progress{height:3px;position:fixed;inset:0 0 auto;z-index:2000}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--acid),var(--orange));box-shadow:0 0 18px var(--acid)}
+    .nav{position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(18px)}.nav-in{height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:-.06em}.brand-mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--acid);color:var(--acid);font:500 13px 'DM Mono',monospace;transform:rotate(-5deg);box-shadow:4px 4px 0 rgba(217,255,67,.15)}.brand-copy small{display:block;font:9px 'DM Mono',monospace;color:var(--dim);letter-spacing:.12em;margin-top:-3px}.nav-links{display:flex;gap:30px;align-items:center}.nav-links a{color:var(--muted);font:10px 'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--acid)}.nav-right{display:flex;align-items:center;gap:10px}.theme,.menu{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:50%;display:grid;place-items:center;cursor:pointer;transition:.2s}.theme:hover,.menu:hover{border-color:var(--acid);color:var(--acid);transform:rotate(8deg)}.menu{display:none}.nav-cta{padding:11px 16px;border:1px solid var(--line2);font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;transition:.2s}.nav-cta:hover{background:var(--acid);border-color:var(--acid);color:#10120a}
+    .hero{min-height:calc(100svh - 78px);padding:88px 0 68px;position:relative;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:40px}.hero:before{content:"01 / PERSONAL SYSTEMS";position:absolute;top:34px;left:0;color:var(--dim);font:10px 'DM Mono',monospace;letter-spacing:.13em}.hero-copy{position:relative;z-index:2}.availability{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:99px;padding:8px 12px;color:var(--muted);font:9px 'DM Mono',monospace;letter-spacing:.09em;text-transform:uppercase}.live-dot{width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 0 5px color-mix(in srgb,var(--acid) 16%,transparent);animation:pulse 2s infinite}@keyframes pulse{50%{box-shadow:0 0 0 9px transparent}}.hero h1{font-size:clamp(62px,8.2vw,122px);line-height:.86;letter-spacing:-.095em;font-weight:600;margin:34px 0 24px;max-width:780px}.hero h1 .outline{color:transparent;-webkit-text-stroke:1px var(--ink)}.hero h1 .acid{color:var(--acid)}.hero-sub{display:flex;align-items:center;gap:12px;color:var(--orange);font:11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}.hero-sub:before{content:"";width:34px;height:1px;background:currentColor}.hero-desc{max-width:555px;color:var(--muted);font-size:15px;line-height:1.9}.hero-desc strong{color:var(--ink);font-weight:600}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{min-height:50px;padding:0 19px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--line2);font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;transition:transform .25s,background .25s,border .25s;color:var(--ink)}.btn:hover{transform:translateY(-4px)}.btn-primary{background:var(--acid);border-color:var(--acid);color:#11150a}.btn-primary:hover{box-shadow:7px 7px 0 color-mix(in srgb,var(--acid) 22%,transparent)}.btn-arrow{font-size:16px}.hero-foot{display:flex;gap:24px;align-items:center;margin-top:38px;color:var(--dim);font:9px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em}.hero-foot a{transition:color .2s}.hero-foot a:hover{color:var(--acid)}.hero-foot .sep{width:3px;height:3px;border-radius:50%;background:var(--orange)}
+    .hero-art{min-height:570px;position:relative;display:grid;place-items:center;isolation:isolate}.art-frame{position:absolute;inset:8% 2% 6% 2%;border:1px solid var(--line);border-radius:48% 48% 12px 12px / 44% 44% 12px 12px;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,color-mix(in srgb,var(--acid) 12%,transparent),transparent 58%),linear-gradient(145deg,color-mix(in srgb,var(--panel) 84%,transparent),transparent 70%)}.art-frame:before,.art-frame:after{content:"";position:absolute;border:1px solid var(--line);border-radius:50%;width:72%;aspect-ratio:1;left:14%;top:13%;transform:rotateX(66deg) rotate(-25deg)}.art-frame:after{width:91%;left:4%;top:6%;transform:rotateX(68deg) rotate(30deg);border-color:color-mix(in srgb,var(--orange) 30%,transparent)}.orbital{position:relative;width:min(92%,520px);aspect-ratio:1;display:grid;place-items:center;perspective:900px}.orbit-ring{position:absolute;width:85%;height:39%;border:1px solid color-mix(in srgb,var(--acid) 52%,transparent);border-radius:50%;transform:rotate(-33deg) rotateX(58deg);animation:orbitA 18s linear infinite}.orbit-ring.r2{width:104%;height:47%;border-color:color-mix(in srgb,var(--orange) 55%,transparent);transform:rotate(42deg) rotateX(62deg);animation:orbitB 23s linear infinite reverse}.orbit-ring.r3{width:68%;height:80%;border-color:var(--line2);transform:rotate(26deg) rotateX(10deg);animation:orbitA 35s linear infinite}.orbit-dot{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--acid);box-shadow:0 0 18px var(--acid);top:14%;left:18%}.r2 .orbit-dot{background:var(--orange);box-shadow:0 0 18px var(--orange);top:80%;left:79%}@keyframes orbitA{to{transform:rotate(327deg) rotateX(58deg)}}@keyframes orbitB{to{transform:rotate(402deg) rotateX(62deg)}}.core{width:47%;aspect-ratio:1;border:1px solid color-mix(in srgb,var(--acid) 40%,var(--line));border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--acid) 14%,var(--panel)),var(--bg) 72%);box-shadow:0 0 70px color-mix(in srgb,var(--acid) 12%,transparent),inset 0 0 35px color-mix(in srgb,var(--acid) 7%,transparent);z-index:2}.core svg{width:33%;height:auto;color:var(--acid);filter:drop-shadow(0 0 10px color-mix(in srgb,var(--acid) 50%,transparent))}.core-label{margin-top:17px;font:10px 'DM Mono',monospace;letter-spacing:.18em;text-align:center}.core-sub{color:var(--dim);font:8px 'DM Mono',monospace;letter-spacing:.12em;margin-top:6px}.orbit-tag{position:absolute;z-index:4;padding:9px 12px;background:var(--bg);border:1px solid var(--line2);font:9px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;box-shadow:var(--shadow)}.orbit-tag b{color:var(--acid);font-weight:500}.orbit-tag.t1{top:15%;right:0}.orbit-tag.t2{bottom:16%;left:0}.orbit-tag.t3{bottom:10%;right:8%}.art-index{position:absolute;right:5%;top:9%;font:9px 'DM Mono',monospace;color:var(--dim);writing-mode:vertical-rl;letter-spacing:.2em}.art-note{position:absolute;bottom:5%;right:5%;font:9px 'DM Mono',monospace;color:var(--dim);text-align:right;line-height:1.8}.hero-scroll{position:absolute;bottom:22px;left:0;display:flex;align-items:center;gap:13px;color:var(--dim);font:9px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}.scroll-line{width:48px;height:1px;background:var(--acid);position:relative;overflow:hidden}.scroll-line:after{content:"";position:absolute;inset:0;background:var(--orange);transform:translateX(-100%);animation:scan 2s infinite}@keyframes scan{to{transform:translateX(100%)}}
+    .ticker{background:var(--acid);color:#11150a;overflow:hidden;clip-path:polygon(0 2%,100% 0,100% 98%,0 100%);margin:8px 0 50px}.ticker-track{display:flex;gap:34px;white-space:nowrap;padding:12px 0;animation:marquee 30s linear infinite;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.13em}.ticker-track span{display:inline-flex;align-items:center;gap:30px}.ticker-track i{font-style:normal;color:#ee6a48;font-size:15px}@keyframes marquee{to{transform:translateX(-50%)}}
+    .section{padding:126px 0;position:relative}.section-top{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:54px}.index{font:10px 'DM Mono',monospace;color:var(--orange);letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}.section h2{font-size:clamp(42px,6vw,78px);line-height:.93;letter-spacing:-.08em;font-weight:500;margin:0}.section h2 .stroke{color:transparent;-webkit-text-stroke:1px var(--ink)}.section-intro{width:min(390px,38%);color:var(--muted);font-size:13px;line-height:1.9;margin:0}.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:stretch}.manifesto{font-size:clamp(24px,3.2vw,42px);line-height:1.26;letter-spacing:-.055em;margin:0;max-width:800px}.manifesto em{color:var(--acid);font-style:normal}.manifesto small{font:10px 'DM Mono',monospace;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:34px}.intro-aside{border-left:1px solid var(--line2);padding:8px 0 8px 30px;display:flex;flex-direction:column;justify-content:space-between}.intro-aside p{color:var(--muted);font-size:13px;line-height:1.9;margin:0}.now-card{margin-top:30px;padding:17px 18px;border:1px solid var(--line);background:var(--panel);display:flex;align-items:center;justify-content:space-between;gap:15px}.now-card span{display:block;color:var(--dim);font:9px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}.now-card strong{display:block;font-size:13px;margin-top:4px}.now-card .mark{color:var(--acid);font-size:22px}
+    .systems-section{background:var(--bg2);border-block:1px solid var(--line)}.systems-layout{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:center}.system-map{position:relative;min-height:540px;border:1px solid var(--line);border-radius:4px;background:radial-gradient(ellipse at 50% 50%,color-mix(in srgb,var(--acid) 7%,transparent),transparent 55%),var(--bg);overflow:hidden}.map-grid{position:absolute;inset:0;opacity:.35;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:34px 34px}.system-map svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.wire{fill:none;stroke:var(--dim);stroke-width:1.2;stroke-dasharray:5 8;opacity:.55}.wire.active{stroke:var(--acid);stroke-width:1.8;opacity:.9;stroke-dasharray:6 6;animation:dash 18s linear infinite}@keyframes dash{to{stroke-dashoffset:-140}}.map-node{position:absolute;min-width:110px;padding:13px 14px;border:1px solid var(--line2);background:var(--panel);color:var(--ink);text-align:left;cursor:pointer;z-index:2;transition:.24s;box-shadow:0 8px 25px rgba(0,0,0,.18)}.map-node:hover,.map-node[aria-pressed="true"]{border-color:var(--acid);transform:translateY(-4px);box-shadow:0 0 0 3px color-mix(in srgb,var(--acid) 10%,transparent),0 14px 35px rgba(0,0,0,.24)}.map-node[aria-pressed="true"]:after{content:"ACTIVE";position:absolute;right:8px;top:6px;color:var(--acid);font:7px 'DM Mono',monospace;letter-spacing:.1em}.map-node small{display:block;color:var(--dim);font:8px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase}.map-node b{display:block;font-size:12px;font-weight:600;margin-top:4px}.map-node .node-icon{font-size:18px;color:var(--acid);display:block;margin-bottom:6px}.map-node.n-battery{left:6%;top:13%}.map-node.n-station{left:37%;top:39%}.map-node.n-charger{right:6%;top:13%}.map-node.n-cloud{left:7%;bottom:13%}.map-node.n-app{right:7%;bottom:13%}.map-center{position:absolute;left:50%;top:16%;transform:translateX(-50%);font:8px 'DM Mono',monospace;letter-spacing:.14em;color:var(--dim);text-align:center}.map-caption{position:absolute;left:17px;bottom:13px;color:var(--dim);font:8px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}.system-detail{border-top:1px solid var(--line2);padding-top:24px}.system-detail .detail-kicker{color:var(--orange);font:9px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase}.system-detail h3{font-size:clamp(28px,3.5vw,48px);letter-spacing:-.07em;line-height:1;margin:15px 0}.system-detail p{color:var(--muted);font-size:13px;line-height:1.9}.detail-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}.chip{display:inline-flex;padding:7px 10px;border:1px solid var(--line);color:var(--muted);font:8px 'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase}
+    .work-intro{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:25px}.work-intro p{margin:0;color:var(--dim);font:9px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:15px}.work-card{position:relative;min-height:360px;background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:25px;isolation:isolate;transition:transform .3s,border-color .3s}.work-card:hover{transform:translateY(-6px);border-color:var(--acid)}.work-card:nth-child(1),.work-card:nth-child(4){grid-column:span 7}.work-card:nth-child(2),.work-card:nth-child(3),.work-card:nth-child(5){grid-column:span 5}.work-card:nth-child(6){grid-column:span 7}.card-art{position:absolute;inset:0;z-index:-1;opacity:.7;overflow:hidden}.card-art:before{content:"";position:absolute;width:380px;height:280px;right:-50px;top:15px;border:1px solid color-mix(in srgb,var(--acid) 40%,transparent);border-radius:50%;transform:rotate(-22deg);box-shadow:0 0 0 22px rgba(217,255,67,.025),0 0 0 52px rgba(217,255,67,.02)}.card-art:after{content:"";position:absolute;width:210px;height:210px;right:70px;top:45px;border:1px dashed color-mix(in srgb,var(--orange) 65%,transparent);border-radius:50%;transform:rotate(30deg)}.work-card:nth-child(2) .card-art:before{right:-130px;top:90px;transform:rotate(60deg);border-color:color-mix(in srgb,var(--orange) 55%,transparent)}.work-card:nth-child(3) .card-art:before{width:210px;height:340px;right:30px;top:-10px;border-radius:110px;transform:rotate(18deg)}.work-card:nth-child(4) .card-art:before{width:460px;height:160px;right:-10px;top:40px;transform:rotate(0);border-color:color-mix(in srgb,var(--blue) 55%,transparent)}.work-card:nth-child(5) .card-art:before{width:240px;height:240px;right:35px;top:40px;border-radius:10px;transform:rotate(45deg)}.work-card:nth-child(6) .card-art:before{width:300px;height:300px;right:60px;top:-5px;border-radius:50%;border-style:dashed}.work-card .meta{display:flex;justify-content:space-between;gap:15px;color:var(--dim);font:8px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase}.work-card .meta .number{color:var(--orange)}.work-bottom{max-width:490px}.work-bottom h3{font-size:clamp(24px,3vw,38px);letter-spacing:-.065em;line-height:1;margin:0 0 12px}.work-bottom p{max-width:470px;font-size:12px;color:var(--muted);line-height:1.8;margin:0}.work-open{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:0 0 7px;border:0;border-bottom:1px solid var(--line2);background:none;color:var(--acid);font:9px 'DM Mono',monospace;letter-spacing:.11em;text-transform:uppercase;cursor:pointer}.work-open:hover{color:var(--orange);border-color:var(--orange)}
+    .career{background:var(--bg2);border-block:1px solid var(--line)}.career-stack{display:grid;grid-template-columns:260px 1fr;gap:70px}.career-aside{position:sticky;top:120px;align-self:start}.career-aside .big-year{font-size:100px;line-height:.8;letter-spacing:-.1em;color:var(--acid)}.career-aside p{font:9px 'DM Mono',monospace;letter-spacing:.11em;color:var(--dim);text-transform:uppercase;line-height:1.8;margin-top:22px}.career-list{border-top:1px solid var(--line2)}.career-item{display:grid;grid-template-columns:130px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line)}.career-date{color:var(--orange);font:9px 'DM Mono',monospace;letter-spacing:.1em;line-height:1.7}.career-role{font-size:22px;letter-spacing:-.05em;margin:0}.career-company{font:10px 'DM Mono',monospace;color:var(--dim);margin:6px 0 16px;letter-spacing:.04em}.career-copy{font-size:12px;color:var(--muted);line-height:1.85;max-width:760px}.career-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+    .capabilities{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}.cap-intro{position:sticky;top:120px;align-self:start}.cap-intro p{font-size:13px;color:var(--muted);line-height:1.9;max-width:350px}.cap-filters{display:flex;flex-wrap:wrap;gap:7px;margin:25px 0}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:9px 12px;font:8px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.2s}.filter.active,.filter:hover{background:var(--acid);color:#11150a;border-color:var(--acid)}.cap-list{border-top:1px solid var(--line2)}.cap-row{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);transition:opacity .2s}.cap-row[hidden]{display:none}.cap-num{font:10px 'DM Mono',monospace;color:var(--orange);padding-top:4px}.cap-row h3{font-size:18px;letter-spacing:-.04em;margin:0 0 7px}.cap-row p{font-size:11px;color:var(--muted);line-height:1.85;margin:0}.cap-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.cap-tools span{color:var(--dim);font:8px 'DM Mono',monospace;padding:5px 7px;border:1px solid var(--line)}
+    .credentials{background:var(--acid);color:#10130a;position:relative;overflow:hidden}.credentials:after{content:"LEARN / BUILD / REPEAT";position:absolute;right:-30px;bottom:-34px;color:rgba(16,19,10,.07);font-size:clamp(60px,12vw,170px);font-weight:700;letter-spacing:-.1em;white-space:nowrap;pointer-events:none}.credentials .index{color:#a4472e}.credentials .section-intro{color:#3c4a23}.recognition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:45px;position:relative;z-index:2}.recognition{min-height:190px;border:1px solid rgba(16,19,10,.3);padding:22px;display:flex;flex-direction:column;justify-content:space-between}.recognition .symbol{font-size:30px;line-height:1}.recognition h3{font-size:22px;letter-spacing:-.06em;margin:0}.recognition p{font-size:10px;color:#46532e;line-height:1.7;margin:7px 0 0}.learning-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;position:relative;z-index:2}.learning-row span{font:8px 'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase;border:1px solid rgba(16,19,10,.35);padding:8px 10px}
+    .creator{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:center}.creator h2{font-size:clamp(48px,7vw,90px);line-height:.88;letter-spacing:-.09em;margin:0}.creator h2 span{color:var(--orange)}.creator p{color:var(--muted);font-size:13px;line-height:1.9;max-width:600px}.creator-card{min-height:280px;border:1px solid var(--line);background:var(--panel);position:relative;overflow:hidden;padding:25px;display:flex;flex-direction:column;justify-content:space-between}.creator-card:before{content:"";position:absolute;width:260px;height:260px;border:1px solid var(--acid);border-radius:50%;right:-55px;top:-35px;box-shadow:0 0 0 25px rgba(217,255,67,.035),0 0 0 55px rgba(217,255,67,.025)}.creator-card:after{content:"LT";position:absolute;right:46px;top:38px;font-size:80px;letter-spacing:-.1em;color:var(--acid);transform:rotate(-10deg)}.creator-card .mono{font-size:9px;color:var(--dim);letter-spacing:.12em;text-transform:uppercase}.creator-card h3{font-size:32px;letter-spacing:-.07em;margin:0;position:relative}.creator-card p{font:9px 'DM Mono',monospace;color:var(--muted);margin:4px 0 0;max-width:220px;position:relative}
+    .contact{background:var(--bg2);border-top:1px solid var(--line)}.contact-grid{display:grid;grid-template-columns:1fr .85fr;gap:70px}.contact-head h2{font-size:clamp(54px,8vw,108px);line-height:.85;letter-spacing:-.1em;margin:0}.contact-head h2 span{color:var(--acid)}.contact-head p{color:var(--muted);font-size:13px;line-height:1.9;max-width:450px;margin-top:25px}.contact-lines{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.contact-link{border:1px solid var(--line);padding:15px;display:block;transition:.2s}.contact-link:hover{border-color:var(--acid);transform:translateY(-3px)}.contact-link small{display:block;color:var(--dim);font:8px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em}.contact-link b{display:block;font-size:11px;margin-top:7px;font-weight:500;overflow-wrap:anywhere}.contact-panel{border:1px solid var(--line);padding:25px;background:var(--panel)}.contact-panel h3{margin:0 0 6px;font-size:20px;letter-spacing:-.04em}.contact-panel>p{font-size:10px;color:var(--dim);margin:0 0 24px}.field{margin-bottom:13px}.field label{display:block;font:8px 'DM Mono',monospace;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}.field input,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:11px;outline:none;border-radius:0}.field input:focus,.field textarea:focus{border-color:var(--acid)}.field textarea{min-height:100px;resize:vertical}.contact-panel .btn{width:100%;cursor:pointer}.form-note{color:var(--dim);font:8px 'DM Mono',monospace;margin-top:12px;line-height:1.7}
+    footer{border-top:1px solid var(--line);padding:25px 0 34px}.footer-in{display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--dim);font:8px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}.footer-in a:hover{color:var(--acid)}.backtop{position:fixed;z-index:700;right:23px;bottom:23px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line2);background:var(--panel);color:var(--acid);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s}.backtop.show{opacity:1;visibility:visible;transform:none}.toast{position:fixed;z-index:3000;bottom:24px;left:50%;transform:translate(-50%,15px);padding:10px 15px;background:var(--acid);color:#11150a;font:9px 'DM Mono',monospace;letter-spacing:.06em;opacity:0;visibility:hidden;transition:.2s}.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}dialog{width:min(680px,calc(100% - 28px));padding:0;border:1px solid var(--line2);background:var(--panel);color:var(--ink);box-shadow:var(--shadow)}dialog::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8px)}.modal{padding:30px}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.modal-head small{font:9px 'DM Mono',monospace;color:var(--orange);letter-spacing:.13em;text-transform:uppercase}.modal-head h3{font-size:clamp(26px,4vw,42px);letter-spacing:-.07em;line-height:1;margin:10px 0 0}.close{width:36px;height:36px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:20px}.modal-body{font-size:12px;color:var(--muted);line-height:1.9;margin-top:23px}.modal-body ul{padding-left:18px}.modal-body li{margin:7px 0}.modal-foot{border-top:1px solid var(--line);margin-top:24px;padding-top:15px;color:var(--dim);font:8px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em}
+    .reveal{opacity:0;transform:translateY(25px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}.tilt{transform-style:preserve-3d}.tilt:hover{box-shadow:0 25px 55px rgba(0,0,0,.23)}
+    @media(max-width:1000px){.hero{grid-template-columns:1fr .85fr;gap:15px}.hero-art{min-height:490px}.hero h1{font-size:clamp(60px,8vw,94px)}.systems-layout{gap:35px}.career-stack{grid-template-columns:190px 1fr;gap:40px}.capabilities{gap:40px}}
+    @media(max-width:900px){.nav-in{height:68px}.menu{display:grid}.nav-cta{display:none}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:12px 20px 20px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 0;border-bottom:1px solid var(--line)}}
+    @media(max-width:760px){.wrap{width:min(100% - 36px,var(--max))}.nav-in{height:68px}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:12px 20px 20px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 0;border-bottom:1px solid var(--line)}.menu{display:grid}.nav-cta{display:none}.hero{display:flex;flex-direction:column;align-items:stretch;min-height:auto;padding:90px 0 70px;gap:0}.hero h1{font-size:clamp(60px,14vw,100px)}.hero-art{min-height:410px;margin-top:18px}.orbital{width:min(90vw,430px)}.hero-scroll{bottom:15px}.section{padding:88px 0}.section-top{display:block;margin-bottom:38px}.section-intro{width:auto;max-width:530px;margin-top:20px}.intro-grid,.systems-layout,.capabilities,.creator,.contact-grid{grid-template-columns:1fr;gap:32px}.intro-aside{border-left:0;border-top:1px solid var(--line2);padding:24px 0 0}.system-map{min-height:480px}.map-node{min-width:95px;padding:10px}.map-node b{font-size:10px}.map-node small{font-size:7px}.map-node.n-battery{left:3%;top:12%}.map-node.n-charger{right:3%;top:12%}.map-node.n-cloud{left:3%;bottom:10%}.map-node.n-app{right:3%;bottom:10%}.map-node.n-station{left:35%;top:40%}.work-card:nth-child(n){grid-column:span 12;min-height:310px}.career-stack{grid-template-columns:1fr;gap:25px}.career-aside{position:static;display:flex;gap:20px;align-items:center}.career-aside .big-year{font-size:65px}.career-aside p{margin:0}.career-item{grid-template-columns:100px 1fr;gap:17px}.cap-intro{position:static}.recognition-grid{grid-template-columns:1fr 1fr}.recognition:last-child{grid-column:1/-1}.creator-card{min-height:240px}.contact-lines{margin-top:25px}.footer-in{flex-direction:column;align-items:flex-start}}
+    @media(max-width:460px){.hero h1{font-size:16vw}.hero-desc{font-size:13px}.hero-actions .btn{flex:1 1 100%}.hero-foot{flex-wrap:wrap;gap:13px}.hero-art{min-height:340px}.orbit-tag{font-size:7px;padding:7px 9px}.t1{right:-2%}.t2{left:-2%}.t3{right:0}.core-label{font-size:8px}.section h2{font-size:43px}.system-map{min-height:390px}.map-node{min-width:80px;padding:8px}.map-node .node-icon{font-size:14px;margin-bottom:3px}.map-node b{font-size:9px}.map-node small{font-size:6px}.map-center{top:19%}.career-item{grid-template-columns:1fr;gap:7px}.career-role{font-size:20px}.recognition-grid{grid-template-columns:1fr}.recognition:last-child{grid-column:auto}.contact-lines{grid-template-columns:1fr}.modal{padding:22px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Siddalingesh DC","jobTitle":"Engineer — Product & Systems Engineering","worksFor":{"@type":"Organization","name":"SUN Mobility"},"address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"email":"mailto:siddalingeshdc@gmail.com","telephone":"+91-9663926905","sameAs":["https://www.linkedin.com/in/siddalingesh-d-c-285b65220/"]}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="#home" aria-label="Siddalingesh DC home"><span class="brand-mark">SDC</span><span class="brand-copy">Siddalingesh DC<small>EV SYSTEMS / BENGALURU</small></span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">Approach</a><a href="#systems">System map</a><a href="#work">Selected work</a><a href="#career">Experience</a><a href="#capabilities">Capabilities</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-right"><a class="nav-cta" href="assets/Siddalingesh_DC_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a><button class="theme" id="themeToggle" type="button" aria-label="Switch to light theme" title="Toggle theme">◐</button><button class="menu" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button></div>
     </div>
-    <footer>
-      <p>&copy; 2025 Siddalingesh DC. All rights reserved.</p>
-    </footer>
-  </body>
-</html>
+  </header>
+
+  <main id="main">
+    <section class="wrap hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="availability"><span class="live-dot"></span> PRODUCT SYSTEMS ENGINEERING · SUN MOBILITY</div>
+        <div class="hero-sub">Systems thinking for electric mobility</div>
+        <h1 id="heroTitle">I connect<br><span class="outline">the dots</span><br>behind <span class="acid">EVs.</span></h1>
+        <p class="hero-desc">I’m <strong>Siddalingesh DC</strong> — an EV Systems Engineer working across product definition, system architecture, MBSE and integration. I turn complex requirements into connected, testable engineering solutions for battery swapping and charging infrastructure.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#work">Explore my work <span class="btn-arrow">↘</span></a><a class="btn" href="assets/Siddalingesh_DC_Resume.pdf" target="_blank" rel="noopener">View resume ↗</a></div>
+        <div class="hero-foot"><a href="https://www.linkedin.com/in/siddalingesh-d-c-285b65220/" target="_blank" rel="noopener">LinkedIn ↗</a><span class="sep"></span><a href="mailto:siddalingeshdc@gmail.com">Email ↗</a><span class="sep"></span><span>Bengaluru, India</span></div>
+      </div>
+      <div class="hero-art" aria-label="Abstract animated EV systems network illustration">
+        <div class="art-frame"></div><div class="art-index">FIG. 01 — CONNECTED SYSTEMS</div>
+        <div class="orbital" id="orbital">
+          <div class="orbit-ring"><span class="orbit-dot"></span></div><div class="orbit-ring r2"><span class="orbit-dot"></span></div><div class="orbit-ring r3"></div>
+          <div class="core"><svg viewBox="0 0 100 130" fill="none" aria-hidden="true"><path d="M37 5h26v11H37zM25 16h50a7 7 0 0 1 7 7v92a9 9 0 0 1-9 9H27a9 9 0 0 1-9-9V23a7 7 0 0 1 7-7Z" stroke="currentColor" stroke-width="3"/><path d="m55 35-23 35h17l-4 25 24-39H52l3-21Z" fill="currentColor"/></svg><div class="core-label">EV SYSTEMS</div><div class="core-sub">ENERGY · DATA · CONTROL</div></div>
+          <div class="orbit-tag t1"><b>01</b> / REQUIREMENTS</div><div class="orbit-tag t2"><b>02</b> / ARCHITECTURE</div><div class="orbit-tag t3"><b>03</b> / INTEGRATION</div>
+        </div><div class="art-note">A SYSTEM IS MORE<br>THAN ITS PARTS.</div>
+      </div>
+      <div class="hero-scroll"><span class="scroll-line"></span> Scroll to explore</div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">
+      <span>PRODUCT DEFINITION <i>✳</i> SYSTEM ARCHITECTURE <i>✳</i> MBSE & SYSML <i>✳</i> CHARGING SYSTEMS <i>✳</i> BATTERY SWAPPING <i>✳</i> INTEGRATION & VERIFICATION <i>✳</i></span>
+      <span>PRODUCT DEFINITION <i>✳</i> SYSTEM ARCHITECTURE <i>✳</i> MBSE & SYSML <i>✳</i> CHARGING SYSTEMS <i>✳</i> BATTERY SWAPPING <i>✳</i> INTEGRATION & VERIFICATION <i>✳</i></span>
+    </div></div>
+
+    <section class="wrap section" id="about">
+      <div class="section-top reveal"><div><div class="index">01 / THE APPROACH</div><h2>See the whole.<br><span class="stroke">Solve the detail.</span></h2></div><p class="section-intro">I work where product intent meets system behaviour — connecting people, interfaces, software, electronics and the physical product.</p></div>
+      <div class="intro-grid">
+        <p class="manifesto reveal">Good systems engineering is not just drawing a diagram. It is asking <em>the right questions</em>, finding the interfaces that matter, anticipating edge cases and making sure the final experience works as one.</p>
+        <div class="intro-aside reveal"><p>At SUN Mobility, my work spans the lifecycle of EV battery-swapping infrastructure: from feature PRDs and system requirements to architecture, charger and cloud integrations, verification support and field-focused solutioning. I enjoy turning ambiguous problems into clear engineering paths with cross-functional teams.</p><div class="now-card"><div><span>Current role</span><strong>Engineer · Product & Systems Engineering</strong><span>SUN Mobility · Since 20 June 2025</span></div><div class="mark">↗</div></div></div>
+      </div>
+    </section>
+
+    <section class="systems-section" id="systems">
+      <div class="wrap section">
+        <div class="section-top reveal"><div><div class="index">02 / SYSTEM EXPLORER</div><h2>One product.<br><span class="stroke">Many interfaces.</span></h2></div><p class="section-intro">Explore a conceptual EV infrastructure ecosystem. Select a node to see how I think about the engineering boundary around it.</p></div>
+        <div class="systems-layout">
+          <div class="system-map reveal" aria-label="Interactive conceptual EV infrastructure diagram">
+            <div class="map-grid"></div><div class="map-center">CONNECTED EV INFRASTRUCTURE / CONCEPT VIEW</div>
+            <svg viewBox="0 0 700 540" preserveAspectRatio="none" aria-hidden="true"><path class="wire active" d="M125 118 350 266 575 118M125 420 350 266 575 420M125 118 125 420M575 118 575 420"/><path class="wire" d="M125 118 575 420M575 118 125 420"/><circle cx="350" cy="266" r="116" fill="none" stroke="var(--line)" stroke-dasharray="3 8"/><circle cx="350" cy="266" r="80" fill="none" stroke="var(--line2)"/><circle cx="350" cy="266" r="6" fill="var(--acid)"/></svg>
+            <button class="map-node n-battery" data-node="battery" aria-pressed="false"><span class="node-icon">▥</span><small>Energy layer</small><b>Battery</b></button>
+            <button class="map-node n-charger" data-node="charger" aria-pressed="false"><span class="node-icon">ϟ</span><small>Power layer</small><b>Charger</b></button>
+            <button class="map-node n-station" data-node="station" aria-pressed="true"><span class="node-icon">⌘</span><small>Control layer</small><b>Swap station</b></button>
+            <button class="map-node n-cloud" data-node="cloud" aria-pressed="false"><span class="node-icon">☁</span><small>Data layer</small><b>Cloud & APIs</b></button>
+            <button class="map-node n-app" data-node="app" aria-pressed="false"><span class="node-icon">▣</span><small>Experience layer</small><b>App & operator</b></button>
+            <div class="map-caption">Illustrative only · not a product or proprietary architecture</div>
+          </div>
+          <div class="system-detail reveal" aria-live="polite"><div class="detail-kicker" id="systemKicker">CONTROL LAYER / 03</div><h3 id="systemTitle">Swap station</h3><p id="systemText">The station is where physical mechanisms, controllers, charger interfaces, battery availability and operator workflows converge. I contribute to feature definition, station behaviour, power and swap management, fault handling and system-level integration.</p><div class="detail-tags" id="systemTags"><span class="chip">Feature requirements</span><span class="chip">State behaviour</span><span class="chip">Fault management</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="work">
+      <div class="section-top reveal"><div><div class="index">03 / SELECTED WORK</div><h2>Problems worth<br><span class="stroke">solving well.</span></h2></div><p class="section-intro">A selection of professional engineering themes and academic projects. Professional examples are intentionally generalised to protect confidential implementation details.</p></div>
+      <div class="work-intro"><p>Selected engineering themes / 2025 — Present</p><p>Open a card for the contribution view ↗</p></div>
+      <div class="work-grid">
+        <article class="work-card reveal tilt"><div class="card-art"></div><div class="meta"><span>PROFESSIONAL / EV INFRASTRUCTURE</span><span class="number">01 — 06</span></div><div class="work-bottom"><h3>Multi-dock battery swapping</h3><p>Systems engineering across 3-dock, 6-dock and 15-dock station programmes, including power, swap and fault management, clustering and station-level feature evolution.</p><button class="work-open" data-project="swapping">Explore contribution <span>↗</span></button></div></article>
+        <article class="work-card reveal tilt"><div class="card-art"></div><div class="meta"><span>PROFESSIONAL / CHARGING</span><span class="number">02</span></div><div class="work-bottom"><h3>Charger integration & power</h3><p>Protocol and integration requirements, verification support, and MATLAB/Python simulations to study station power-management improvements.</p><button class="work-open" data-project="charging">Explore contribution <span>↗</span></button></div></article>
+        <article class="work-card reveal tilt"><div class="card-art"></div><div class="meta"><span>PROFESSIONAL / MBSE</span><span class="number">03</span></div><div class="work-bottom"><h3>Architecture & requirements</h3><p>PRDs, system requirements and structured views using context, boundary, SysML, sequence, activity and use-case diagrams.</p><button class="work-open" data-project="mbse">Explore contribution <span>↗</span></button></div></article>
+        <article class="work-card reveal tilt"><div class="card-art"></div><div class="meta"><span>PROFESSIONAL / CONNECTED SYSTEMS</span><span class="number">04</span></div><div class="work-bottom"><h3>Connected station experiences</h3><p>Solutioning across station, app and cloud interfaces: OTA concepts, API requirements, operator workflows, inventory visibility and data monitoring.</p><button class="work-open" data-project="connected">Explore contribution <span>↗</span></button></div></article>
+        <article class="work-card reveal tilt"><div class="card-art"></div><div class="meta"><span>ACADEMIC / EMBEDDED & IOT</span><span class="number">05</span></div><div class="work-bottom"><h3>Battery monitoring system</h3><p>STM32 and ESP8266-based monitoring concept using voltage, current and temperature sensors for battery parameter observation.</p><button class="work-open" data-project="iot">Explore project <span>↗</span></button></div></article>
+        <article class="work-card reveal tilt"><div class="card-art"></div><div class="meta"><span>ACADEMIC / EV POWERTRAIN</span><span class="number">06</span></div><div class="work-bottom"><h3>EV dynamics & power conversion</h3><p>Academic work spanning four-wheel-drive torque-vectoring simulation and a three-level T-Type NPC inverter for EV applications.</p><button class="wor
