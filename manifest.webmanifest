@@ -1,0 +1,12 @@
+{
+  "name": "Siddalingesh DC — EV Systems Engineering",
+  "short_name": "Siddalingesh DC",
+  "description": "EV systems engineering, architecture, MBSE and connected infrastructure.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f1efe8",
+  "theme_color": "#f1efe8",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
